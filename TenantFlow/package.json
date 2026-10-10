@@ -1,0 +1,19 @@
+{
+    "name":"tenantflow",
+    "version":"1.0.0",
+    "private":true,
+    "type":"module",
+    "engines":{"node":">=24"},
+    "scripts":{"setup":"node scripts/setup.mjs",
+    "dev":"node scripts/dev.mjs",
+    "build":"vite build",
+    "start":"node server/index.mjs",
+    "check":"node --check server/index.mjs && node --check server/billing.mjs && node --check server/store.mjs && node --check src/main.js",
+    "test":"node --test test/*.test.mjs"},
+    "dependencies":{"express":"^5.1.0",
+    "express-rate-limit":"^8.0.1",
+    "helmet":"^8.1.0",
+    "cookie-parser":"^1.4.7",
+    "dotenv":"^17.2.2","pg":"^8.16.3","stripe":"^19.0.0","lucide":"^0.468.0"},
+    "devDependencies":{"vite":"^7.1.5"}
+}
