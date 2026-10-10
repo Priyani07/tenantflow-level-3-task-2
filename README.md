@@ -14,7 +14,7 @@ TenantFlow is a standalone multi-tenant SaaS project for **Nexlevr Level 03 — 
 | Multi-tenant isolation | Organization membership checks and organization-scoped queries on every resource route |
 | Roles | Owner, admin, member; owner-only billing and role changes |
 | Stripe billing | Hosted subscription Checkout, Customer Portal, verified raw-body webhooks, invoices, plan entitlements |
-| Architecture walkthrough | [Walkthrough](docs/ARCHITECTURE.md), [diagram](docs/architecture.svg), and [LinkedIn draft](docs/LINKEDIN-POST.md) |
+| Architecture walkthrough | [Walkthrough](TenantFlow/docs/ARCHITECTURE.md), [diagram](TenantFlow/docs/architecture.svg), and [LinkedIn draft](TenantFlow/docs/LINKEDIN-POST.md) |
 
 ## Features
 
@@ -58,7 +58,7 @@ Open http://localhost:5174. Vite proxies API requests to the backend on port 300
 
 ## Stripe setup
 
-Follow **[docs/STRIPE-SETUP.md](docs/STRIPE-SETUP.md)** to create test-mode products, obtain keys, forward webhooks, enable the Customer Portal, and test payment/cancellation flows.
+Follow **[docs/STRIPE-SETUP.md](TenantFlow/docs/STRIPE-SETUP.md)** to create test-mode products, obtain keys, forward webhooks, enable the Customer Portal, and test payment/cancellation flows.
 
 The UI reads actual prices from Stripe rather than hardcoding a claimed charge. Configure flat monthly recurring prices (quantity 1); this is not per-seat metered billing.
 
@@ -139,23 +139,23 @@ npm run build
 
 Nine integration scenarios cover tenant isolation, guessed resource IDs, role permissions, email-bound/revoked/expired/single-use invitations, transactionally enforced quotas, CSRF, hashed sessions, session revocation, password changes, owner-only billing, duplicate Checkout requests, existing subscriptions, signed webhooks, replay protection, canonical-state ordering, retries after failure, and subscription entitlement changes.
 
-Tests use real local HTTP endpoints and the Stripe SDK’s signature verification. External Stripe API calls are mocked. Actual Stripe Checkout/card/portal behavior and PostgreSQL behavior require separate environment tests. See [docs/TESTING.md](docs/TESTING.md).
+Tests use real local HTTP endpoints and the Stripe SDK’s signature verification. External Stripe API calls are mocked. Actual Stripe Checkout/card/portal behavior and PostgreSQL behavior require separate environment tests. See [docs/TESTING.md](TenantFlow/docs/TESTING.md).
 
 ### Dashboard
 
-![TenantFlow dashboard](docs/screenshots/dashboard.png)
+![TenantFlow dashboard](TenantFlow/docs/screenshots/dashboard.png)
 
 ### Projects
 
-![Organization projects](docs/screenshots/projects.png)
+![Organization projects](TenantFlow/docs/screenshots/projects.png)
 
 ### Team and roles
 
-![Team members and roles](docs/screenshots/team.png)
+![Team members and roles](TenantFlow/docs/screenshots/team.png)
 
 ### Billing configuration
 
-![Billing page — Stripe configuration pending](docs/screenshots/billing.png)
+![Billing page — Stripe configuration pending](TenantFlow/docs/screenshots/billing.png)
 
 For a stronger demonstration, also capture two different organizations showing different project lists. Screenshots illustrate the interface; automated authorization tests provide the evidence for tenant isolation. Hide invitation tokens, session values, passwords, and API keys before publishing images.
 
